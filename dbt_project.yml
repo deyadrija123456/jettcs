@@ -35,14 +35,17 @@ clean-targets:         # directories to be removed by `dbt clean`
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
-models:
-  my_new_project:
-    # Applies to all files under models/example/
-    example:
-      +materialized: table
 
 models: 
   your_project_name: Analytics_Assignment
-    staging:
-      materialized: view
+
+    stage:
+      stg_order_items.sql:
+          +materialized: table;
+          transient: false
+
+
+       stg_Customers.sql:
+          +materialized: table;
+          transient: false   
 
