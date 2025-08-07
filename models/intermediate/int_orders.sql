@@ -14,8 +14,8 @@ a.tax_paid,
 a.ordered_at,
 b.ORDER_ITEM_ID,
 b.PRODUCT_ID,
-{{CurrencyConversion('a.order_total','3','EUR') }]} as Order_Total_EUR,
-{{CurrencyConversion('a.order_total','2', 'YEN' ) }} as Order_Total_YEN
+{{ConvertCurrency('a.order_total','3','EUR') }]} as Order_Total_EUR,
+{{ConvertCurrency('a.order_total','2', 'YEN' ) }} as Order_Total_YEN
 from
 stg_orders a
 join stg_order_items b
