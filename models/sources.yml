@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw                # This is the database schema name
+    database: your_database  # Replace with your actual database name
+    schema: raw              # Use your raw schema name
+    tables:
+      - name: customers
+        description: "Raw customers table"
+      - name: order_items
+        description: "Raw order items table"
