@@ -1,7 +1,7 @@
-{{ config (materialised = 'incremental') }}
+{{config (materialised = 'incremental')}}
 
 with stg_orders as
-( select * from {{ref("stg_orders")}}),
+( select * from {{ref("stg_orders") }}),
 
 stg_order_items as
 ( select * from {{ref("stg_order_items")}})
@@ -14,10 +14,10 @@ a.tax_paid,
 a.ordered_at,
 b.ORDER_ITEM_ID,
 b.PRODUCT_ID,
-{{ConvertCurrency('a.order_total','3','EUR') }]} as Order_Total_EUR,
-{{ConvertCurrency('a.order_total','2', 'YEN' ) }} as Order_Total_YEN
+{{ConversionOfCurrency('a.order_total','3','EUR' )}} as Order_Total_EUR,
+{{ConversionOfCurrency('a.order_total','2', 'YEN' ) }} as Order_Total_YEN
 from
 stg_orders a
 join stg_order_items b
 on a.order_id-b.orderid
-where a.ordered_at <= '{{ var ("order_after_date")}} 
+where a.ordered_at <= '{{ var ("order_after_date")}} |
