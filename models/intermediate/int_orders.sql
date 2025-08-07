@@ -20,4 +20,4 @@ from
 stg_orders a
 join stg_order_items b
 on a.order_id-b.orderid
-where a.ordered_at <= '{{ var ("order_after_date")}} |
+where a.ordered_at <= '{{ var ("order_after_date")}} 
